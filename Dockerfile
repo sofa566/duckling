@@ -25,6 +25,9 @@ RUN stack install
 
 FROM debian:stretch
 
+ENV TZ=Asia/Taipei
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && \
